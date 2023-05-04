@@ -70,7 +70,7 @@ def main():
         conf['codecov'] = 'yes'
         conf['coveralls'] = 'yes'
         conf['scrutinizer'] = 'yes'
-        with open(join(base_path, "ci", "envs", alias + '.cookiecutterrc'), "w") as fh:
+        with open(join(base_path, "ci", "envs", f'{alias}.cookiecutterrc'), "w") as fh:
             fh.write(yaml.safe_dump(
                 dict(default_context={k: v for k, v in conf.items() if v}),
                 default_flow_style=False
@@ -78,7 +78,7 @@ def main():
     for name in os.listdir(join(base_path, "ci", "templates")):
         with open(join(base_path, name), "w") as fh:
             fh.write(jinja.get_template(name).render(tox_environments=tox_environments))
-        print("Wrote {}".format(name))
+        print(f"Wrote {name}")
     print("DONE.")
 
 
