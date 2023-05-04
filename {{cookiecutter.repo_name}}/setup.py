@@ -87,7 +87,7 @@ class OptionalBuildExt(build_ext):
 
         print('CAUSE:')
         print('')
-        print('    ' + repr(e))
+        print(f'    {repr(e)}')
         print('*' * 80)
 {%- endif %}
 
